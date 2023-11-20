@@ -1,5 +1,5 @@
-const TileList = () => {
-	return <div>TileList</div>;
+const TileList = ({ data }) => {
+	return <div>{data.name}</div>;
 };
 
 export default TileList;
