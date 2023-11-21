@@ -9,7 +9,7 @@ import { useState } from "react";
 
 function App() {
 	const [contacts, setContacts] = useState([]);
-	console.log("🚀 ~ file: App.jsx:12 ~ App ~ contacts:", contacts);
+	// console.log("🚀 ~ file: App.jsx:12 ~ App ~ contacts:", contacts);
 	const [appointments, setAppointments] = useState([]);
 
 	const handleAddContact = (name, phone, email) => {

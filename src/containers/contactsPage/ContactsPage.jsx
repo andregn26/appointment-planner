@@ -13,9 +13,10 @@ const ContactsPage = ({ contacts, handleAddContact }) => {
 		const isDuplicate = contacts.some((contact) => contact.name === name);
 		if (isDuplicate) {
 			setIsDuplicated(true);
+		} else {
+			setIsDuplicated(false);
 		}
-		console.log("render");
-	}, []);
+	}, [contacts, name]);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -41,9 +42,9 @@ const ContactsPage = ({ contacts, handleAddContact }) => {
 	};
 
 	return (
-		<div>
-			<section>
-				<h2>Add Contact</h2>
+		<div className=" my-24 flex flex-col md:flex-row gap-4">
+			<section className="bg-base-200 rounded-3xl p-8 mb-8 md:mb-0 md:max-w-xs w-full">
+				<h2 className="text-center font-bold text-2xl mb-8">Add Contact</h2>
 				<ContactForm
 					name={name}
 					setName={setName}
@@ -52,14 +53,14 @@ const ContactsPage = ({ contacts, handleAddContact }) => {
 					email={email}
 					setEmail={setEmail}
 					handleSubmit={handleSubmit}
+					isDuplicated={isDuplicated}
 				/>
+				{isDuplicated ? <p>Nome ja existe</p> : null}
 			</section>
 			<hr />
-			<section>
-				<h2>Contacts</h2>
-				{contacts.map((contact) => {
-					return <TileList key={contact.name} data={contact} />;
-				})}
+			<section className=" bg-base-200 rounded-3xl p-8 mt-8 md:mt-0 w-full">
+				<h2 className="text-center font-bold text-2xl">Contacts</h2>
+				<TileList data={contacts} />
 			</section>
 			<ToastContainer />
 		</div>

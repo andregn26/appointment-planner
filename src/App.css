@@ -1,0 +1,15 @@
+.border-r-2{
+    border: solid red 2px;
+}
+
+.border-r-4{
+    border: solid red 4px;
+}
+
+.border-g-2{
+    border: solid green 2px;
+}
+
+.border-g-4{
+    border: solid green 4px;
+}
