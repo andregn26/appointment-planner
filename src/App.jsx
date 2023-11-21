@@ -1,6 +1,6 @@
 import { createBrowserRouter, createRoutesFromElements, Navigate, Route, RouterProvider } from "react-router-dom";
 import Root from "./components/root/Root";
-import AppointmentPage from "./containers/appointmentPage/appointmentPage";
+import AppointmentPage from "./containers/appointmentPage/AppointmentPage";
 import ContactsPage from "./containers/contactsPage/ContactsPage";
 
 import "./App.css";
