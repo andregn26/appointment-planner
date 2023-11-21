@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useEffect, useState } from "react";
 import TileList from "../../components/tileList/TileList";
 import ContactForm from "../../components/contactForm/ContactForm";
@@ -55,14 +56,20 @@ const ContactsPage = ({ contacts, handleAddContact }) => {
 					handleSubmit={handleSubmit}
 					isDuplicated={isDuplicated}
 				/>
-				{isDuplicated ? <p>Nome ja existe</p> : null}
+				{isDuplicated ? <p>This name already exists!</p> : null}
 			</section>
 			<hr />
 			<section className=" bg-base-200 rounded-3xl p-8 mt-8 md:mt-0 w-full">
 				<h2 className="text-center font-bold text-2xl">Contacts</h2>
-				<TileList data={contacts} />
+				{contacts.length === 0 ? (
+					<p className="text-center h-full flex items-center justify-center">
+						You don't have any contacts yet. Fill the form to create your first contact!
+					</p>
+				) : (
+					<TileList data={contacts} />
+				)}
 			</section>
-			<ToastContainer />
+			<ToastContainer theme="dark" autoClose={3000} />
 		</div>
 	);
 };

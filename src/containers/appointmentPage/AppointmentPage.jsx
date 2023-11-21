@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
 import AppointmentForm from "../../components/appointmentForm/AppointmentForm";
 import TileList from "../../components/tileList/TileList";
@@ -33,7 +34,13 @@ const AppointmentPage = ({ appointments, contacts, handleAddAppointment }) => {
 			<hr />
 			<section className=" bg-base-200 rounded-3xl p-8 mt-8 md:mt-0 w-full">
 				<h2 className="text-center font-bold text-2xl">Appointments</h2>
-				<TileList data={appointments} />
+				{appointments.length === 0 ? (
+					<p className="text-center h-full flex items-center justify-center">
+						You don't have any appointment yet. Fill the form to create your first appointment!
+					</p>
+				) : (
+					<TileList data={appointments} />
+				)}
 			</section>
 		</div>
 	);

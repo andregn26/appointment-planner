@@ -1,13 +1,6 @@
-import { NavLink, Outlet } from "react-router-dom";
-
-const Header = () => {
-	return (
-		<nav className="fixed top-0 w-full bg-neutral flex gap-4 py-4 justify-center">
-			<NavLink to="/contacts">Contacts</NavLink>
-			<NavLink to="/appointments">Appointments</NavLink>
-		</nav>
-	);
-};
+import { Outlet } from "react-router-dom";
+import Header from "./header/Header";
+import Footer from "./footer/Footer";
 
 const Root = () => {
 	return (
@@ -18,6 +11,7 @@ const Root = () => {
 					<Outlet />
 				</div>
 			</div>
+			<Footer />
 		</>
 	);
 };
